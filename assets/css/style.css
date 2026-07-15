@@ -230,14 +230,6 @@ a { text-decoration: none; color: inherit; }
   -webkit-tap-highlight-color: transparent;
 }
 
-.deck__swipe {
-  text-align: center;
-  font-family: var(--head);
-  font-weight: 500;
-  font-size: .92rem;
-  color: rgba(255,255,255,.55);
-  padding: 14px 16px 0;
-}
 .deck__bar {
   display: flex; align-items: center; justify-content: space-between;
   gap: 14px;
@@ -292,28 +284,49 @@ a { text-decoration: none; color: inherit; }
 }
 .slideframe__img.is-fading { opacity: 0; }
 
+/* Full-height tap zones: tap anywhere left/right to change slide */
+.tapzone {
+  position: absolute; top: 0; bottom: 0;
+  width: 40%;
+  background: transparent; border: 0; padding: 0; margin: 0;
+  cursor: pointer; z-index: 3;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.tapzone--prev { left: 0; }
+.tapzone--next { right: 0; }
+
 .navarrow {
   position: absolute;
   top: 50%; transform: translateY(-50%);
   z-index: 5;
-  width: 52px; height: 52px;
+  width: 68px; height: 68px;
   border-radius: 50%;
   display: grid; place-items: center;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(253,102,38,.18);
+  border: 2px solid rgba(253,102,38,.55);
   color: var(--white);
   cursor: pointer;
   touch-action: manipulation;
   user-select: none; -webkit-user-select: none;
   transition: background .2s ease, border-color .2s ease, transform .2s ease;
+  animation: arrowPulse 2.2s ease-in-out infinite;
 }
-.navarrow svg { width: 24px; height: 24px; }
+.navarrow svg { width: 32px; height: 32px; }
 .navarrow:hover { background: var(--orange); border-color: var(--orange); }
-.navarrow:active { transform: translateY(-50%) scale(.94); }
-.navarrow--prev { left: clamp(8px, 2vw, 26px); }
-.navarrow--next { right: clamp(8px, 2vw, 26px); }
-.navarrow:disabled { opacity: .3; cursor: default; }
-.navarrow:disabled:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.16); }
+.navarrow:active { transform: translateY(-50%) scale(.92); }
+.navarrow--prev { left: clamp(10px, 2.5vw, 30px); }
+.navarrow--next { right: clamp(10px, 2.5vw, 30px); }
+.navarrow:disabled { opacity: .2; cursor: default; animation: none; }
+.navarrow:disabled:hover { background: rgba(253,102,38,.18); border-color: rgba(253,102,38,.55); }
+
+/* Pulse stops once the person starts flicking through */
+.deck--touched .navarrow { animation: none; }
+
+@keyframes arrowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(253,102,38,0); }
+  50%      { box-shadow: 0 0 0 14px rgba(253,102,38,.14); }
+}
 
 .deck__foot { padding: 0 clamp(14px, 3vw, 30px) 20px; }
 .progress {

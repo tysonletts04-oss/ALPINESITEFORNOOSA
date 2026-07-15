@@ -30,6 +30,9 @@
   var prevBtn = document.getElementById("prev");
   var nextBtn = document.getElementById("next");
   var stage = document.getElementById("stage");
+  var tapPrev = document.getElementById("tapPrev");
+  var tapNext = document.getElementById("tapNext");
+  var deckEl = document.querySelector(".deck");
 
   var btnFull = document.getElementById("btnFull");
 
@@ -141,11 +144,15 @@
     preloaded[n] = true;
   }
 
-  function next() { if (current < TOTAL) goTo(current + 1); }
-  function prev() { if (current > 1) goTo(current - 1); }
+  function markTouched() { if (deckEl) deckEl.classList.add("deck--touched"); }
+  function next() { markTouched(); if (current < TOTAL) goTo(current + 1); }
+  function prev() { markTouched(); if (current > 1) goTo(current - 1); }
 
   nextBtn.addEventListener("click", next);
   prevBtn.addEventListener("click", prev);
+  // large left/right tap zones — tap anywhere to flick between slides
+  tapNext.addEventListener("click", next);
+  tapPrev.addEventListener("click", prev);
 
   /* ---------- KEYBOARD ---------- */
   document.addEventListener("keydown", function (e) {
