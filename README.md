@@ -1,4 +1,4 @@
-# Alpine Capital — ECM Credentials Site
+# Alpine Capital ECM Credentials Site
 
 A single-page website that presents Alpine Capital's ECM credentials deck and a
 guide to opening an account, styled in the Alpine Capital brand (deep teal +
@@ -8,13 +8,13 @@ orange).
 
 From the landing page, visitors choose one of two paths:
 
-1. **View ECM Transactions** — a full-screen deck viewer that flicks through all
+1. **View ECM Transactions**: a full-screen deck viewer that flicks through all
    31 slides of the June 2026 ECM Credentials deck.
    - Next / previous arrows, `←` `→` keyboard keys, and touch swipe
    - Progress bar + slide counter
    - "All slides" thumbnail grid to jump to any slide
    - Fullscreen mode
-2. **Open an Account** — a step-by-step guide to becoming an Alpine client, with
+2. **Open an Account**: a step-by-step guide to becoming an Alpine client, with
    the team's contact details.
 
 ## Structure
@@ -28,7 +28,7 @@ assets/slides/           # slide-01.jpg … slide-31.jpg (rendered from the PDF 
 
 ## Running locally
 
-It's a static site — serve the folder with any static server, e.g.:
+It is a static site. Serve the folder with any static server, for example:
 
 ```bash
 python3 -m http.server 8000

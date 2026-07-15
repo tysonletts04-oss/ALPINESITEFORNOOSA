@@ -1,5 +1,5 @@
 /* ============================================================
-   Alpine Capital — ECM Credentials
+   Alpine Capital ECM Credentials
    View router + slide deck viewer
    ============================================================ */
 (function () {
@@ -86,7 +86,7 @@
 
     function swap() {
       slideImg.src = slidePath(n);
-      slideImg.alt = "Alpine Capital ECM deck — slide " + n + " of " + TOTAL;
+      slideImg.alt = "Alpine Capital ECM deck, slide " + n + " of " + TOTAL;
     }
 
     if (instant) {
