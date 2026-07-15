@@ -21,6 +21,8 @@
   };
   var topbar = document.getElementById("topbar");
   var navLinks = document.querySelectorAll("[data-nav]");
+  var navToggle = document.getElementById("navToggle");
+  var topnav = document.getElementById("topnav");
 
   var slideImg = document.getElementById("slideImg");
   var counter = document.getElementById("counter");
@@ -76,7 +78,35 @@
         e.preventDefault();
         location.hash = target;
       }
+      closeMenu();
     });
+  });
+
+  /* ---------- MOBILE MENU ---------- */
+  function openMenu() {
+    topnav.classList.add("is-open");
+    navToggle.classList.add("is-open");
+    navToggle.setAttribute("aria-expanded", "true");
+    navToggle.setAttribute("aria-label", "Close menu");
+  }
+  function closeMenu() {
+    topnav.classList.remove("is-open");
+    navToggle.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-label", "Open menu");
+  }
+  navToggle.addEventListener("click", function () {
+    if (topnav.classList.contains("is-open")) closeMenu();
+    else openMenu();
+  });
+  // close when tapping outside the header
+  document.addEventListener("click", function (e) {
+    if (!topnav.classList.contains("is-open")) return;
+    if (!topbar.contains(e.target)) closeMenu();
+  });
+  // close on Escape
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeMenu();
   });
 
   /* ---------- DECK NAVIGATION ---------- */

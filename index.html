@@ -18,7 +18,10 @@
     <a class="brand" href="#home" data-nav="home" aria-label="Alpine Capital home">
       <img class="brand__logo" src="assets/img/alpine-logo.svg" alt="Alpine Capital" />
     </a>
-    <nav class="topnav">
+    <button class="navtoggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="topnav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="topnav" id="topnav">
       <a href="#home" data-nav="home">Home</a>
       <a href="#deck" data-nav="deck">ECM Transactions</a>
       <a href="#account" data-nav="account">Open an Account</a>
@@ -29,9 +32,7 @@
   <main id="view-home" class="view view--home is-active">
     <div class="hero">
       <div class="hero__inner">
-        <img class="hero__mark" src="assets/img/alpine-icon.svg" alt="Alpine Capital" />
-        <p class="hero__eyebrow">Equity Capital Markets Credentials</p>
-        <h1 class="hero__title">A market leader in Australian<br /><span>small-cap ECM transactions</span></h1>
+        <h1 class="hero__title">A market leader in Australian <br /><span>small-cap ECM transactions</span></h1>
         <p class="hero__lead">
           Independent advice, unique insights and enterprise grade execution across
           Institutional Broking, Corporate Finance and Wealth Management. Choose a path below.
