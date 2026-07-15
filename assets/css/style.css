@@ -60,15 +60,8 @@ a { text-decoration: none; color: inherit; }
 }
 .topbar.is-solid { background: var(--green); box-shadow: 0 2px 20px rgba(0,0,0,.35); }
 
-.brand { display: inline-flex; align-items: center; gap: 12px; color: var(--orange); }
-.brand__mark { width: 34px; height: 34px; }
-.brand__word {
-  font-family: var(--head);
-  font-weight: 700;
-  letter-spacing: .14em;
-  font-size: 1.02rem;
-  color: var(--orange);
-}
+.brand { display: inline-flex; align-items: center; color: var(--orange); }
+.brand__logo { height: 32px; width: auto; display: block; }
 
 .topnav { display: flex; gap: clamp(14px, 3vw, 34px); align-items: center; }
 .topnav a {
@@ -214,9 +207,8 @@ a { text-decoration: none; color: inherit; }
   padding: 34px clamp(20px, 5vw, 56px);
   display: flex; align-items: center; gap: 26px; flex-wrap: wrap;
 }
-.foot__brand { display: inline-flex; align-items: center; gap: 10px; color: var(--orange); }
-.foot__brand svg { width: 26px; height: 26px; }
-.foot__brand span { font-family: var(--head); font-weight: 700; letter-spacing: .12em; font-size: .82rem; }
+.foot__brand { display: inline-flex; align-items: center; color: var(--orange); }
+.foot__logo { height: 26px; width: auto; display: block; }
 .foot__legal { color: rgba(255,255,255,.5); font-size: .78rem; line-height: 1.6; flex: 1 1 340px; }
 .foot--onlight { background: var(--green); border-top: none; margin-top: 40px; border-radius: var(--radius); }
 
@@ -446,7 +438,7 @@ a { text-decoration: none; color: inherit; }
    ============================================================ */
 @media (max-width: 720px) {
   .topnav a[data-nav="home"] { display: none; }
-  .brand__word { font-size: .9rem; }
+  .brand__logo { height: 28px; }
   .hero { padding-top: 100px; }
   .deck__hint { display: none; }
   .navarrow { width: 42px; height: 42px; }
@@ -455,5 +447,5 @@ a { text-decoration: none; color: inherit; }
 }
 
 @media (max-width: 420px) {
-  .brand__word { display: none; }
+  .brand__logo { height: 24px; }
 }
