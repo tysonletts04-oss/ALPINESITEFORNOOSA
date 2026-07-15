@@ -31,14 +31,9 @@
   var nextBtn = document.getElementById("next");
   var stage = document.getElementById("stage");
 
-  var btnGrid = document.getElementById("btnGrid");
   var btnFull = document.getElementById("btnFull");
-  var thumbs = document.getElementById("thumbs");
-  var thumbsGrid = document.getElementById("thumbsGrid");
-  var closeThumbs = document.getElementById("closeThumbs");
 
   var current = 1;
-  var thumbsBuilt = false;
 
   /* ---------- ROUTER ---------- */
   function routeFromHash() {
@@ -62,8 +57,6 @@
 
     if (name === "deck") {
       goTo(current, true);
-    } else {
-      closeThumbsPanel();
     }
     window.scrollTo(0, 0);
   }
@@ -138,14 +131,6 @@
     // preload neighbours
     preload(n + 1);
     preload(n - 1);
-
-    // sync thumbnail highlight
-    if (thumbsBuilt) {
-      var tiles = thumbsGrid.querySelectorAll(".thumb");
-      tiles.forEach(function (t, i) {
-        t.classList.toggle("is-current", i + 1 === n);
-      });
-    }
   }
 
   var preloaded = {};
@@ -165,10 +150,6 @@
   /* ---------- KEYBOARD ---------- */
   document.addEventListener("keydown", function (e) {
     if (!views.deck.classList.contains("is-active")) return;
-    if (thumbs.classList.contains("is-open")) {
-      if (e.key === "Escape") closeThumbsPanel();
-      return;
-    }
     switch (e.key) {
       case "ArrowRight":
       case " ":
@@ -208,51 +189,6 @@
       (document.exitFullscreen || document.webkitExitFullscreen || function () {}).call(document);
     }
   });
-
-  /* ---------- THUMBNAILS ---------- */
-  function buildThumbs() {
-    if (thumbsBuilt) return;
-    var frag = document.createDocumentFragment();
-    for (var i = 1; i <= TOTAL; i++) {
-      (function (n) {
-        var tile = document.createElement("button");
-        tile.className = "thumb";
-        tile.setAttribute("aria-label", "Go to slide " + n);
-        var img = document.createElement("img");
-        img.loading = "lazy";
-        img.src = slidePath(n);
-        img.alt = "Slide " + n;
-        var no = document.createElement("span");
-        no.className = "thumb__no";
-        no.textContent = n;
-        tile.appendChild(img);
-        tile.appendChild(no);
-        tile.addEventListener("click", function () {
-          goTo(n);
-          closeThumbsPanel();
-        });
-        frag.appendChild(tile);
-      })(i);
-    }
-    thumbsGrid.appendChild(frag);
-    thumbsBuilt = true;
-  }
-
-  function openThumbsPanel() {
-    buildThumbs();
-    thumbs.classList.add("is-open");
-    thumbs.setAttribute("aria-hidden", "false");
-    var tiles = thumbsGrid.querySelectorAll(".thumb");
-    tiles.forEach(function (t, i) { t.classList.toggle("is-current", i + 1 === current); });
-    var cur = thumbsGrid.querySelector(".is-current");
-    if (cur) cur.scrollIntoView({ block: "center" });
-  }
-  function closeThumbsPanel() {
-    thumbs.classList.remove("is-open");
-    thumbs.setAttribute("aria-hidden", "true");
-  }
-  btnGrid.addEventListener("click", openThumbsPanel);
-  closeThumbs.addEventListener("click", closeThumbsPanel);
 
   /* ---------- TOPBAR SOLID ON SCROLL ---------- */
   window.addEventListener("scroll", function () {
