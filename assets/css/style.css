@@ -61,7 +61,7 @@ a { text-decoration: none; color: inherit; }
 .topbar.is-solid { background: var(--green); box-shadow: 0 2px 20px rgba(0,0,0,.35); }
 
 .brand { display: inline-flex; align-items: center; color: var(--orange); }
-.brand__logo { height: 32px; width: auto; display: block; }
+.brand__logo { height: 21px; width: auto; display: block; }
 
 .topnav { display: flex; gap: clamp(14px, 3vw, 34px); align-items: center; }
 .topnav a {
@@ -208,7 +208,7 @@ a { text-decoration: none; color: inherit; }
   display: flex; align-items: center; gap: 26px; flex-wrap: wrap;
 }
 .foot__brand { display: inline-flex; align-items: center; color: var(--orange); }
-.foot__logo { height: 26px; width: auto; display: block; }
+.foot__logo { height: 20px; width: auto; display: block; }
 .foot__legal { color: rgba(255,255,255,.5); font-size: .78rem; line-height: 1.6; flex: 1 1 340px; }
 .foot--onlight { background: var(--green); border-top: none; margin-top: 40px; border-radius: var(--radius); }
 
@@ -438,7 +438,7 @@ a { text-decoration: none; color: inherit; }
    ============================================================ */
 @media (max-width: 720px) {
   .topnav a[data-nav="home"] { display: none; }
-  .brand__logo { height: 28px; }
+  .brand__logo { height: 19px; }
   .hero { padding-top: 100px; }
   .deck__hint { display: none; }
   .navarrow { width: 42px; height: 42px; }
@@ -447,5 +447,5 @@ a { text-decoration: none; color: inherit; }
 }
 
 @media (max-width: 420px) {
-  .brand__logo { height: 24px; }
+  .brand__logo { height: 17px; }
 }
