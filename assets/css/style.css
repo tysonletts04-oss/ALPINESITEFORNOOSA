@@ -93,41 +93,30 @@ a { text-decoration: none; color: inherit; }
   overflow: hidden;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 120px clamp(20px, 6vw, 96px) 80px;
+  justify-content: center;
+  text-align: center;
+  padding: 132px clamp(20px, 5vw, 40px) 96px;
   background:
-    radial-gradient(1200px 700px at 80% -10%, rgba(253,102,38,.10), transparent 60%),
-    linear-gradient(160deg, var(--green), var(--black) 135%);
-}
-/* Large brand circle motif echoing the deck cover */
-.hero__circle {
-  position: absolute;
-  top: 50%; right: -14%;
-  transform: translateY(-50%);
-  width: min(70vw, 780px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 35% 30%, rgba(253,102,38,.16), transparent 45%),
-    conic-gradient(from 200deg, rgba(255,255,255,.05), rgba(255,255,255,.015), rgba(255,255,255,.06));
-  border: 1px solid rgba(255,255,255,.06);
-  pointer-events: none;
-}
-.hero__circle::after {
-  content: ""; position: absolute; inset: 14%; border-radius: 50%;
-  border: 1px solid rgba(253,102,38,.14);
+    radial-gradient(760px 460px at 50% -4%, rgba(253,102,38,.13), transparent 62%),
+    linear-gradient(180deg, var(--green), var(--black) 150%);
 }
 
-.hero__inner { position: relative; z-index: 2; max-width: 880px; }
+.hero__inner { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; }
+
+.hero__mark {
+  height: 40px; width: auto; display: block; margin: 0 auto 26px;
+}
 
 .hero__eyebrow {
   font-family: var(--head);
   text-transform: uppercase;
-  letter-spacing: .22em;
-  font-size: .78rem;
+  letter-spacing: .24em;
+  font-size: .76rem;
   font-weight: 700;
   color: var(--orange);
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 .hero__title {
   font-family: var(--head);
@@ -135,12 +124,12 @@ a { text-decoration: none; color: inherit; }
   color: var(--white);
   font-size: clamp(2.1rem, 6vw, 4rem);
   line-height: 1.08;
-  letter-spacing: -.01em;
+  letter-spacing: -.015em;
 }
 .hero__title span { color: var(--orange); }
 .hero__lead {
-  margin-top: 22px;
-  max-width: 620px;
+  margin: 22px auto 0;
+  max-width: 600px;
   color: var(--muted-light);
   font-size: clamp(1rem, 1.6vw, 1.16rem);
   line-height: 1.65;
@@ -148,11 +137,13 @@ a { text-decoration: none; color: inherit; }
 
 /* Choice cards */
 .choices {
-  margin-top: 48px;
+  margin: 52px auto 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 22px;
-  max-width: 780px;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 20px;
+  max-width: 760px;
+  width: 100%;
+  text-align: left;
 }
 .choice {
   display: flex;
@@ -192,11 +183,14 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 14px;
 }
 .choice__cta {
+  display: inline-block;
   font-family: var(--head);
   font-weight: 700;
   font-size: .9rem;
   color: var(--orange);
+  transition: transform .25s ease;
 }
+.choice:hover .choice__cta { transform: translateX(4px); }
 
 /* ============================================================
    FOOTER
