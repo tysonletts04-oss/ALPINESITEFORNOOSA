@@ -358,6 +358,9 @@ a { text-decoration: none; color: inherit; }
 }
 #counter { font-weight: 700; font-size: .95rem; }
 
+.deck__enlargehint { display: none; }
+.deck__enlargehint a { color: var(--orange); font-weight: 700; }
+
 /* ============================================================
    ACCOUNT STEPS
    ============================================================ */
@@ -495,6 +498,15 @@ a { text-decoration: none; color: inherit; }
   .navarrow { width: 42px; height: 42px; }
   .deck__title { display: none; }
   .step { padding: 20px; gap: 16px; }
+
+  .deck__enlargehint {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-family: var(--head);
+    font-size: .82rem;
+    color: rgba(255,255,255,.5);
+  }
 }
 
 @media (max-width: 480px) {
@@ -503,6 +515,16 @@ a { text-decoration: none; color: inherit; }
 
 @media (max-width: 420px) {
   .brand__logo { height: 17px; }
+}
+
+/* Landscape phones: trim the chrome so a rotated slide fills the screen */
+@media (orientation: landscape) and (max-height: 500px) {
+  .deck__bar { padding: 7px clamp(12px, 3vw, 24px); }
+  .deck__foot { padding: 0 clamp(12px, 3vw, 24px) 8px; }
+  .deck__stage { padding: 8px; }
+  .progress { margin-bottom: 8px; }
+  .deck__enlargehint { display: none; }
+  .slideframe { max-width: min(100%, calc((100vh - 96px) * 1.7778)); }
 }
 
 </style>
@@ -624,6 +646,10 @@ a { text-decoration: none; color: inherit; }
         <div class="deck__meta">
           <span id="counter">1 / 31</span>
         </div>
+        <p class="deck__enlargehint">
+          Turn your phone sideways, or
+          <a href="https://tysonletts04-oss.github.io/ALPINESITEFORNOOSA/assets/alpine-ecm-credentials.pdf" target="_blank" rel="noopener">download the deck to enlarge &rarr;</a>
+        </p>
       </div>
     </div>
   </section>
